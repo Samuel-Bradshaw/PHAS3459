@@ -22,8 +22,8 @@ public class VectorMethods {
 				 }
 	 
 	//angle function 
-	 //cos(angle)= (dot product of vector1 & vector2)/(mag1*mag2) 
-	 //recall arccos function from Math 
+	//cos(angle)= (dot product of vector1 & vector2)/(mag1*mag2) 
+	//recall arccos function from Math class 
 	 double angle (double x1, double y1, double z1,
 	 			double x2, double y2, double z2) {
 		 
@@ -51,13 +51,9 @@ public class VectorMethods {
 		
 		double ang2 = vm.angle(6, 3, 1, 0, 0, 0);
 		System.out.println("Angle between (6,3,1) and (0,0,0) = "+ang2+" radians");
-		System.out.println("-as one of the vectors is (0,0,0) there is no angle between them.");
-		
-		
+		System.out.println("-as one of the vectors is (0,0,0) there is no angle between these vectors.");
 		
 	
-		
-
 	}
 
 }

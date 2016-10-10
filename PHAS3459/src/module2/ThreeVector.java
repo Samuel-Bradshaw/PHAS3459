@@ -8,32 +8,46 @@ public class ThreeVector {
 	// member variables
 	double x; double y; double z; 	
 	
-	//method returning magnitude of vector
-	double magnitude(){
-		 return Math.sqrt((x*x)+(y*y)+(z*z));}
-	
 	//constructor
 	public ThreeVector(double x1, double y1, double z1) {
 		x = x1;
 		y = y1;
-		z = z1;}
+		z = z1;
+		}
+	
+	//returning the vector x component
+	//	public double getx(){
+		//return x;	
+		//}
+	//returning the vector y component
+		//public double gety(){
+		//return y;	
+		//}	
+	//returning the vector z component
+		//	public double getz(){
+			//return z;	
+			//}
 		
-	ThreeVector unitVector(){
-		x = x1/magnitude
+	
+	//method returning magnitude of vector
+	double magnitude(){
+		 return Math.sqrt( (x*x) + (y*y) + (z*z) );
+		 }
+	
+	public ThreeVector unitVector(){
+		double a = x/Math.sqrt((x*x) + (y*y) + (z*z));
+		double b = y/Math.sqrt((x*x) + (y*y) + (z*z));
+		double c = z/Math.sqrt((x*x) + (y*y) + (z*z)); 
+		return new ThreeVector(a, b, c);
 	}
 	
-	
-	
-
-
-		ThreeVector unitVector(double x, double y, double z){ 
-			return (x, y, z)/magnitude(x, y, z); 
+	String toString(){
+		string 
+		
 	}
-	
+		
 	
   
  
-	 
-
 	}
 

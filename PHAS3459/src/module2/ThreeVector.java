@@ -5,18 +5,35 @@ import java.lang.Math;
 
 public class ThreeVector {
 	
-	double magnitude(double x, double y, double z){
+	// member variables
+	double x; double y; double z; 	
+	
+	//method returning magnitude of vector
+	double magnitude(){
 		 return Math.sqrt((x*x)+(y*y)+(z*z));}
 	
-	ThreeVector unitVector(double x, double y, double z){ //do I define the method here 
-		return (x, y, z)/Math.sqrt((x*x)+(y*y)+(z*z));    // or inside the main part? 
-	} // how do I store a vector? 
+	//constructor
+	public ThreeVector(double x1, double y1, double z1) {
+		x = x1;
+		y = y1;
+		z = z1;}
+		
+	ThreeVector unitVector(){
+		x = x1/magnitude
+	}
+	
+	
+	
+
+
+		ThreeVector unitVector(double x, double y, double z){ 
+			return (x, y, z)/magnitude(x, y, z); 
+	}
+	
+	
+  
  
-	public static void main(String[] args) {
-		
-		ThreeVector tv = new ThreeVector();
-		
+	 
 
 	}
 
-}

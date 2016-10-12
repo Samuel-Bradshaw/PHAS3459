@@ -48,9 +48,19 @@ public class ThreeVector {
 				 scalarProduct(a, b)/ (a.magnitude()*b.magnitude())
 				 			);}
 	 
-	 //Non-static
+	 //Non-static methods
+	 
 	 double scalarProduct(ThreeVector b){
-		  return (this.x)*(b.x)+(this.y)*(b.y)+(this.z)*(b.z);}
+		 // recalling the static method defined above 
+		 return scalarProduct(this, b);}
+	 
+	ThreeVector vectorProduct(ThreeVector b){
+		// recalling the static method of vectorProduct
+			 return vectorProduct(this, b);} 
+			 
+	 double angle(ThreeVector b){
+		 return angle(this, b);
+	 }
 }
 
 

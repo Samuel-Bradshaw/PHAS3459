@@ -22,6 +22,7 @@ public class Complex {
 	}
 	
 	double modulus(){
-		//tan(theta)
+		//tan(theta) = y/x
+		return Math.atan(this.y/this.x);
 	}
 }

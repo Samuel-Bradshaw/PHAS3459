@@ -3,7 +3,7 @@ package module2;
 public class TestThreeVector {
 
 	public static void main(String[] args) {
-		ThreeVector v1 = new ThreeVector(5,2,3);
+		ThreeVector v1 = new ThreeVector(5,2,3); //creating a new "object", v1, in the ThreeVector "class"
 		//double mag1 = v1.magnitude();
 		ThreeVector unitv1 =v1.unitVector();  
 		
@@ -50,6 +50,7 @@ public class TestThreeVector {
 		System.out.println("Angle between v1 and v3: "+v1v3angle);
 
 		//Non Static methods
+		
 		double v1v2nonstatic = v1.scalarProduct(v2);
 		System.out.println("v1.v2 (Non-static method) = "+v1v2nonstatic);
 	}

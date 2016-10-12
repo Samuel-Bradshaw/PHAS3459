@@ -1,7 +1,10 @@
 package module2;
 
-import java.lang.Math;
+/**
+ * Represents 3-Dimensional vectors and some 3D vector manipulations. 
+*/
 
+import java.lang.Math;
 
 public class ThreeVector {
 	
@@ -41,7 +44,7 @@ public class ThreeVector {
 	 }
 	 
 	 static double angle(ThreeVector a, ThreeVector b){
-		 return Math.acos(
+		 return Math.acos( //Using the formula for the dot or scalar product between two vectors to find the angle between them.
 				 scalarProduct(a, b)/ (a.magnitude()*b.magnitude())
 				 			);}
 	 

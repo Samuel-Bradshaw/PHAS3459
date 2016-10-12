@@ -9,31 +9,17 @@ public class ThreeVector {
 	double x; double y; double z; 	
 	
 	//constructor
-	public ThreeVector(double x1, double y1, double z1) {
-		x = x1;
-		y = y1;
-		z = z1;
+	public ThreeVector(double x, double y, double z) {
+		this.x = x;
+		this.y = y;
+		this.z = z;
 		}
-	
-	//returning the vector x component
-	//	public double getx(){
-		//return x;	
-		//}
-	//returning the vector y component
-		//public double gety(){
-		//return y;	
-		//}	
-	//returning the vector z component
-		//	public double getz(){
-			//return z;	
-			//}
-		
 	
 	//method returning magnitude of vector
 	double magnitude(){
-		 return Math.sqrt( (x*x) + (y*y) + (z*z) );
-		 }
+		 return Math.sqrt((x*x) + (y*y) + (z*z)); }
 	
+	//unit vector calculator method
 	public ThreeVector unitVector(){
 		double a = x/Math.sqrt((x*x) + (y*y) + (z*z));
 		double b = y/Math.sqrt((x*x) + (y*y) + (z*z));
@@ -42,12 +28,26 @@ public class ThreeVector {
 	}
 	
 	 public String toString() {
-		  return "x = "+x+", y = "+y+", z = "+z;}
+		  return "("+x+", "+y+", "+z+")";}
 		 
 	 static double scalarProduct(ThreeVector a, ThreeVector b){
 		  return (a.x)*(b.x)+(a.y)*(b.y)+(a.z)*(b.z);}
 		 
 	 static ThreeVector vectorProduct(ThreeVector a, ThreeVector b){
 		  return new ThreeVector(((a.y)*(b.z)-(a.z)*(b.y)), ((a.z)*(b.x)-(a.x)*(b.z)),((a.x)*(b.y)-(a.y)*(b.x)));} 
-		 }
+		 
+	 static ThreeVector add(ThreeVector a, ThreeVector b){
+		 return new ThreeVector(a.x + b.x, a.y + b.y, a.z + b.z);
+	 }
+	 
+	 static double angle(ThreeVector a, ThreeVector b){
+		 return Math.acos(
+				 scalarProduct(a, b)/ (a.magnitude()*b.magnitude())
+				 			);}
+	 
+	 //Non-static
+	 double scalarProduct(ThreeVector b){
+		  return (this.x)*(b.x)+(this.y)*(b.y)+(this.z)*(b.z);}
+}
+
 

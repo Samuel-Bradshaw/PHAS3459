@@ -19,7 +19,7 @@ public class VectorMethods {
 	//magnitude function
 	 double magnitude (double x, double y, double z){
 		 return Math.sqrt((x*x)+(y*y)+(z*z));
-				 }
+	 }
 	 
 	//angle function 
 	//cos(angle)= (dot product of vector1 & vector2)/(mag1*mag2) 

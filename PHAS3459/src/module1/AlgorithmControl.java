@@ -20,7 +20,7 @@ public class AlgorithmControl {
 		double ix = 1.2;
 		double iy = 10.8;
 		double inc1 = 0.4;
-		for(ix = 1.2; ix <= iy; ix = ix+inc1){
+		for(ix = 1.2; ix <= iy+0.01; ix = ix+inc1){
 			System.out.println(ix);
 		}
 	}
@@ -62,7 +62,7 @@ public class AlgorithmControl {
 		
 	
 	public static void main(String[] args) {
-		
+
 		//invoking the loop function defined above
 		System.out.println("loop function:");
 		loop();
@@ -72,15 +72,15 @@ public class AlgorithmControl {
 		//invoking the increment function defined above
 		System.out.println("\nincrement function");
 		increment();
-		
-		//Invoking the timing function
-		System.out.println("\ntimer function");
-		AlgorithmControl ac1 = new AlgorithmControl(); 
-		int loops1 = ac1.timer(10000, 500); // running the timer for 10 seconds and printing every 500 loops
-		int loops2 = ac1.timer(10000, 50000); // running the timer for 10 seconds and printing every 50000 loops
-		System.out.println("500 loop counts: "+loops1);
-		System.out.println("50,000 loop counts: "+loops2);		
-		}
 
+				//Invoking the timing function
+				System.out.println("\ntimer function");
+				AlgorithmControl ac1 = new AlgorithmControl(); 
+				int loops1 = ac1.timer(10000, 500); // running the timer for 10 seconds and printing every 500 loops
+				int loops2 = ac1.timer(10000, 50000); // running the timer for 10 seconds and printing every 50000 loops
+				System.out.println("500 loop counts: "+loops1);
+				System.out.println("50,000 loop counts: "+loops2);		
 	}
+
+}
 

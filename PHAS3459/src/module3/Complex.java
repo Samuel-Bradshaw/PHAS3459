@@ -75,7 +75,7 @@ public class Complex {
 				return false;}
 	}
 	
-	//Initializing variables x and y of a complex number given the modulus and argument. 
+	//Initialising variables x and y of a complex number given the modulus and argument. 
 	 Complex setFromModulusAngle(double mag, double ang){
 		return new Complex( mag*Math.cos(ang), mag*Math.sin(ang));
 				}

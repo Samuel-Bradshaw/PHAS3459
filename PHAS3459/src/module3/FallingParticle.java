@@ -15,10 +15,10 @@ public class FallingParticle {
 
 	public FallingParticle(double mass, double dragcoefficient) throws Exception{
 		if (mass < 0 ){
-			throw new Exception("Cannot assign a negative mass - this behaviour is unphysical.");
+			throw new Exception("Cannot assign a negative mass - this is unphysical.");
 		}
 		if (dragcoefficient < 0){
-			throw new Exception("Cannot assign a negative drag coefficient - this behaviour is unphysical.");
+			throw new Exception("Cannot assign a negative drag coefficient - this is unphysical.");
 		}
 		m = mass;
 		d = dragcoefficient;

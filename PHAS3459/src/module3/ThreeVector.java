@@ -25,7 +25,7 @@ public class ThreeVector {
 
 	//unit vector calculator method
 	public ThreeVector unitVector() throws Exception{
-		if((this.x == 0) && (this.y == 0) &&(this.z == 0)){
+		if((this.x == 0) && (this.y == 0) && (this.z == 0)){
 			throw new Exception("Normalisation of vector failed: cannot normalise a zero vector.");
 		}
 		

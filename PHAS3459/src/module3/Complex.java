@@ -16,16 +16,16 @@ public class Complex {
 		x = real;
 		y = imaginary;
 	}
-	
+
 	//Re-styling the toString function used in ThreeVector class to represent complex numbers.
-	 public String toString() {
-		  return x+" + "+y+"i";
-		  } 
+	public String toString() {
+		return x+" + "+y+"i";
+	} 
 
 	double real(){
 		return x;
 	}
-	
+
 	double imag(){
 		return y;
 	}	
@@ -35,12 +35,12 @@ public class Complex {
 		return Math.sqrt((this.y*this.y) + (this.x*this.x));
 
 	}
-	
+
 	double angle(){
 		//We want the angle to be defined as anti-clockwise from the x-axis, ranging from 0 to 2*Pi. 
-	
+
 		double theta = 0; // - initialising angle.  
-		
+
 		// between 0 and pi/2, tan(theta) = y/x
 		if((this.x > 0) && (this.y >= 0)){
 			theta = Math.atan(this.y/this.x);}
@@ -53,33 +53,33 @@ public class Complex {
 		//between 3pi/2 and 2pi, theta = 3pi/2 + arctan(x/|y|)
 		else if((this.x >= 0) && (this.y < 0)){
 			theta = 3*(Math.PI)/2 + Math.atan(this.x/Math.abs(this.y));}
-		
+
 		return theta;
-		}
-	
+	}
+
 	Complex conjugate(){
 		return new Complex(x, -y);
 	}
-	
+
 	Complex normalised() throws Exception{
 		if((this.x == 0) && (this.y == 0)){
 			throw new Exception("Complex number normalisation failure: cannot normalise zero.");
 		}
 		return new Complex(x/modulus(), y/modulus());
 	}
-	
+
 	boolean equals(Complex c){
 		if((this.x == c.x) && (this.y == c.y)){
 			return true;} 
 		else{
-				return false;}
+			return false;}
 	}
-	
+
 	//Initialising variables x and y of a complex number given the modulus and argument. 
-	 Complex setFromModulusAngle(double mag, double ang){
+	Complex setFromModulusAngle(double mag, double ang){
 		return new Complex( mag*Math.cos(ang), mag*Math.sin(ang));
-				}
-	
+	}
+
 	static Complex add(Complex c1, Complex c2){
 		return new Complex(c1.x + c2.x, c1.y + c2.y);
 	}
@@ -87,25 +87,25 @@ public class Complex {
 	static Complex subtract(Complex c1, Complex c2){
 		return new Complex(c1.x - c2.x, c1.y - c2.y);
 	}
-	
+
 	// c1*c2
 	static Complex multiply(Complex c1, Complex c2){
 		return new Complex( c1.x*c2.x - c1.y*c2.y,  // - real part of c1*c2.
-							c1.x*c2.y + c2.x*c1.y); // - imaginary part of c1*c2.
+				c1.x*c2.y + c2.x*c1.y); // - imaginary part of c1*c2.
 	}
 	// c1/c2
 	static Complex divide(Complex c1, Complex c2) throws Exception{
 		if ((c2.x == 0) && (c2.y == 0)) {
 			throw new Exception("Denominator equal to 0 - cannot compute fraction.");
-	}
+		}
 		return new Complex( (c1.x*c2.x + c1.y*c2.y)/(c2.modulus()*c2.modulus()),   // - the real component of c1/c2.
-							(c1.y*c2.x - c1.x*c2.y)/(c2.modulus()*c2.modulus()) ); // - the imaginary component of c1/c2.
+				(c1.y*c2.x - c1.x*c2.y)/(c2.modulus()*c2.modulus()) ); // - the imaginary component of c1/c2.
 	}
-	
+
 	//Defining static variables
 	public static Complex ONE = new Complex(1, 0);
 	public static Complex ZER0 = new Complex(0,0);
 	public static Complex I = new Complex(0, 1);
-	 
-	
+
+
 }

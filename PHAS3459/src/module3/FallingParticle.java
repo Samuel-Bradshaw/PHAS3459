@@ -4,7 +4,7 @@ package module3;
 //falling under the effects of gravity. 
 
 public class FallingParticle {
-	
+
 	//Member variables:
 	double m; // mass of particle
 	double d; // drag coefficient
@@ -23,32 +23,32 @@ public class FallingParticle {
 		m = mass;
 		d = dragcoefficient;
 	}
-	
+
 	void setZ(double initialheight) throws Exception{
 		if (initialheight < 0){
 			throw new Exception("Particle cannot be assigned a negative starting height - this is unphysical.");
-			}
-		z = initialheight;
 		}
-	
+		z = initialheight;
+	}
+
 	double getZ(){
 		return z;}
-	
+
 	void setV(double initialvelocity){
 		v = initialvelocity;}
-	
+
 	double getV(){
 		return v;}
-	
+
 	double getT(){
 		return t;}
-	
+
 	//Updating the velocity and position after each time step
 	void doTimeStep(double deltaT){
 		double a = (d*(v*v)/m) - g;
 		v = v + (a*deltaT);
 		z = z + (v*deltaT);}
-	
+
 	double drop(double deltaT){
 		t = 0; //resetting the time to t=0 for each drop simulated
 		while(z > 0){

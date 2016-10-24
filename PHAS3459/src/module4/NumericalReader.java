@@ -43,7 +43,7 @@ public class NumericalReader {
 		outputfile.mkdirs();
 		outputfile.createNewFile();
 		System.out.println("File "+dataFile+" created.");
-		
+
 		//Initialising for use in analyseData method
 		dataFile1 = dataFile;
 
@@ -55,7 +55,7 @@ public class NumericalReader {
 	} 
 
 	void analyseData(String line) throws IOException { 
-		
+
 		char firstCharacterOfLine = line.trim().charAt(0);//isolating the first character of string to see if line is a comment. 
 		if(line.trim().isEmpty() || Character.isLetter(firstCharacterOfLine) ){ //-ignoring blank and comment lines.
 		}  
@@ -64,10 +64,10 @@ public class NumericalReader {
 		else{ 
 			try(Scanner sc1 = new Scanner(line);
 					){
-				
+
 				double currentLineTotal = 0;
 				int currentnValuesLine = 0;
-				
+
 				while(sc1.hasNextDouble()){ 
 					Double token = sc1.nextDouble(); 
 					System.out.println(token); 
@@ -100,13 +100,14 @@ public class NumericalReader {
 	} 
 
 	public static void main(String[] args) throws IOException {  
-		//Create new NumericalReader object.
+		//Create new NumericalReader object:
 		NumericalReader nr = new NumericalReader();
 
 		BufferedReader reader = nr.brFromURL("http://foo/bar/");
+		//Initialise line:
 		String line = "";
-		
-		 //Manually enter the directory as a string
+
+		//Manually enter the directory as a string
 		String directory = NumericalReader.getStringFromKeyboard();
 		//Concatenate the resulting String with the name of the specific file in which to store the data 
 		String saveFile = (directory + File.separator + filename);
@@ -117,7 +118,7 @@ public class NumericalReader {
 		}
 		nr.analysisEnd(); // print min, max, etc.
 
-		} 
 	} 
+} 
 
 

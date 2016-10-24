@@ -16,6 +16,7 @@ public class NumericalReader {
 	private double nValues; 
 	private double sumOfValues;
 	private String dataFile1;
+	private static String filename = "numbers.txt";
 
 	//Asks user to enter a string and stores the entered string. 
 	public static String getStringFromKeyboard() throws IOException{ 
@@ -27,7 +28,7 @@ public class NumericalReader {
 	} 
 
 	//Reads an online document and returns the resulting 
-	public BufferedReader brFromURL(String urlName)throws IOException{ 
+	public BufferedReader brFromURL(String urlName) throws IOException{ 
 		URL url = new URL(urlName); 
 		InputStream istream = url.openStream(); 
 		InputStreamReader isr = new InputStreamReader(istream); 
@@ -98,47 +99,24 @@ public class NumericalReader {
 		System.out.println("sumOfValues: "+sumOfValues); 
 	} 
 
-	public static void main(String[] args) throws IOException { 
-		NumericalReader nm = new NumericalReader(); 
-		
-		String directory = NumericalReader.getStringFromKeyboard();
-		String saveFile = (directory + File.separator + dataFile);
+	public static void main(String[] args) throws IOException {  
+		//Create new NumericalReader object.
 		NumericalReader nr = new NumericalReader();
 
 		BufferedReader reader = nr.brFromURL("http://foo/bar/");
 		String line = "";
-
+		
+		 //Manually enter the directory as a string
+		String directory = NumericalReader.getStringFromKeyboard();
+		//Concatenate the resulting String with the name of the specific file in which to store the data 
+		String saveFile = (directory + File.separator + filename);
+		//Pass this String saveFile thorugh analysis start
 		nr.analysisStart(saveFile); // initialize minValue etc.
-		while ((line = br.readLine()) != null) {
+		while ((line = reader.readLine()) != null) {
 			nr.analyseData(line); // analyze lines, check for comments etc.
 		}
 		nr.analysisEnd(); // print min, max, etc.
 
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		//	String a = getStringFromKeyboard(); 
-		//	char b = a.charAt(0); 
-		//	if(Character.isLetter(b)){ 
-		//		System.out.println(b); 
-		//	} 
-		//String st1 = "198 0 a 97"; 
-		//System.out.println(st1);  
-		//Scanner sc1 = new Scanner(st1);  
-		//while(sc1.hasNextDouble()){ 
-			//String token = sc1.next(); 
-			//System.out.println(token); 
 		} 
 	} 
 

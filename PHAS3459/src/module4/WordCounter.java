@@ -10,7 +10,8 @@ public class WordCounter {
 		InputStream istream = url.openStream(); 
 		InputStreamReader isr = new InputStreamReader(istream); 
 		BufferedReader buffr = new BufferedReader(isr); 
-		return buffr;} 
+		return buffr;
+	} 
 	//Returns a buffered reader of a local file. 
 	public static BufferedReader brFromFile(String fileName) throws IOException{ 
 		FileReader fr = new FileReader("filename"); 
@@ -29,7 +30,6 @@ public class WordCounter {
 			return wordcount;
 		}
 	}
-
 
 
 	public static void main(String[] args){ 

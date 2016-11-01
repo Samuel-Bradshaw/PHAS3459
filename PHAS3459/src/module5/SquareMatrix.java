@@ -17,22 +17,22 @@ public class SquareMatrix {
 		matrixElements = elements;
 	}
 	
-	//Presents Square Matrix objects is readable form
+	//Presents Square Matrix objects in a readable form
 	public String toString(){
-		String matstring = "(";
+		String matstring = "(";//start presentation of matrix with a "("
 		for(int row = 0; row < matrixElements.length; row++){
 			for(int column = 0; column < matrixElements[row].length; column++){
 				if(column < (matrixElements.length - 1)){
-					matstring +=  matrixElements[row][column] +"\t";
-				}
-				else{ //if the element is the last one in the row, don't add the space "\t"
+					matstring +=  matrixElements[row][column] +"\t"; //Adding a space between 
+				}													 //each matrix element. 
+				else{ //If the element is the last one in the row, don't add a space at the end. 
 					matstring +=  matrixElements[row][column];
 				}
 			}
 			if(row < (matrixElements.length - 1)){
-				matstring +=  "\n ";
+				matstring +=  "\n ";// New line for each row, apart from the final row of matrix. 
 			}
-			else{ //if the element is the last one in the column 
+			else{ //If the element is the last one in the matrix, close it off with a ")"
 				matstring += ")";}
 		}
 		return matstring;

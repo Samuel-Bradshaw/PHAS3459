@@ -5,6 +5,7 @@ package module5;
  * **/
 
 import java.lang.reflect.Array;
+import java.util.Arrays;
 
 public class SquareMatrix {
 
@@ -19,6 +20,10 @@ public class SquareMatrix {
 			}
 		}
 		matrixElements = elements;
+	}
+
+	int length(){
+		return this.matrixElements.length;
 	}
 
 	//Presents SquareMatrix objects in a readable form
@@ -58,9 +63,67 @@ public class SquareMatrix {
 		return new SquareMatrix(unitmat);
 	}
 
-	//Checks whether tow matrices have the same elements. 
-	public boolean equals(Object obj){
-		
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.deepHashCode(matrixElements);
+		return result;
 	}
-	
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SquareMatrix other = (SquareMatrix) obj;
+		if (!Arrays.deepEquals(matrixElements, other.matrixElements))
+			return false;
+		return true;
+	}
+
+	//Adds two Matrices together 
+	public static SquareMatrix add(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
+		if(sm1.matrixElements.length != sm2.matrixElements.length){ 
+			throw new Exception("SquareMatrix.add() failure: Cannot add matrices of different dimensions.");
+		}
+		double[][] sm3 = new double[sm1.matrixElements.length][sm2.matrixElements.length]; 
+		for(int i = 0; i < sm1.matrixElements.length ; i++){
+			for(int j = 0; j < sm2.matrixElements.length; j++){
+				sm3[i][j] = sm1.matrixElements[i][j] + sm2.matrixElements[i][j];
+			}
+		}
+		return new SquareMatrix(sm3);
+	}
+
+	//Subtracts matrix passed in second argument from matrix passed in first argument. 
+	public static SquareMatrix subtract(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
+		if(sm1.matrixElements.length != sm2.matrixElements.length){
+			throw new Exception("SquareMatrix.subtract() failure: Cannot subtract matrices of different dimensions.");
+		}
+		double[][] sm3 = new double[sm1.matrixElements.length][sm2.matrixElements.length]; 
+		for(int i = 0; i < sm1.matrixElements.length ; i++){
+			for(int j = 0; j < sm2.matrixElements.length; j++){
+				sm3[i][j] = sm1.matrixElements[i][j] - sm2.matrixElements[i][j];
+			}
+		}
+		return new SquareMatrix(sm3);
+	}
+
+	public static SquareMatrix multiply(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
+		if(sm1.matrixElements.length != sm2.matrixElements.length){
+			throw new Exception("SquareMatrix.multiply() failure: Cannot multiply matrices of different dimensions.");
+		} 
+		double[][] sm3 = new double [sm1.matrixElements.length][sm1.matrixElements.length];
+		for(int i = 0; i < sm1.matrixElements.length ; i++){
+			for(int j = 0; j < sm2.matrixElements.length; j++){
+				for(int k = 0; k < sm2.matrixElements.length; k++){
+					sm3[i][j] = sm1.matrixElements[i][k]*sm2.matrixElements[k][j];  
+				}
+			}
+		}
+	}
 }

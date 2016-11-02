@@ -62,7 +62,7 @@ public class SquareMatrix {
 		}
 		return new SquareMatrix(unitmat);
 	}
-
+//Generated from Source -> Generate hasCode() and equals()...
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -70,7 +70,6 @@ public class SquareMatrix {
 		result = prime * result + Arrays.deepHashCode(matrixElements);
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -105,25 +104,36 @@ public class SquareMatrix {
 			throw new Exception("SquareMatrix.subtract() failure: Cannot subtract matrices of different dimensions.");
 		}
 		double[][] sm3 = new double[sm1.matrixElements.length][sm2.matrixElements.length]; 
+
 		for(int i = 0; i < sm1.matrixElements.length ; i++){
-			for(int j = 0; j < sm2.matrixElements.length; j++){
+			for(int j = 0; j < sm2.matrixElements.length; j++){ 
 				sm3[i][j] = sm1.matrixElements[i][j] - sm2.matrixElements[i][j];
 			}
 		}
 		return new SquareMatrix(sm3);
 	}
 
+	//Multiplies two square matrices together.
 	public static SquareMatrix multiply(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
 		if(sm1.matrixElements.length != sm2.matrixElements.length){
-			throw new Exception("SquareMatrix.multiply() failure: Cannot multiply matrices of different dimensions.");
+			throw new Exception("SquareMatrix.multiply() failure: Cannot multiply square matrices of different dimensions.");
 		} 
-		double[][] sm3 = new double [sm1.matrixElements.length][sm1.matrixElements.length];
-		for(int i = 0; i < sm1.matrixElements.length ; i++){
-			for(int j = 0; j < sm2.matrixElements.length; j++){
-				for(int k = 0; k < sm2.matrixElements.length; k++){
-					sm3[i][j] = sm1.matrixElements[i][k]*sm2.matrixElements[k][j];  
+		//Initialising the product of the two matrices as sm3
+		int n = sm1.matrixElements.length;
+		double[][] sm3 = new double[n][n]; 
+		for(int i = 0; i < n; i++){			//Initialising all the values as zero
+			for(int j = 0; j < n; j++){
+				sm3[i][j] = 0;
+			}
+		}
+		//Product of matrices given by sm3[i][j] = sm1[i][k]*sm2[k][j] where we sum over all k indices. 
+		for(int i = 0; i < n ; i++){
+			for(int j = 0; j < n; j++){
+				for(int k = 0; k < n; k++){ //Summing over k indices
+					sm3[i][j] = sm3[i][j] + sm1.matrixElements[i][k]*sm2.matrixElements[k][j];  
 				}
 			}
 		}
+		return new SquareMatrix(sm3);
 	}
 }

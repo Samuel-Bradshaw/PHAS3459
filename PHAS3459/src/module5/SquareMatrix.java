@@ -8,13 +8,13 @@ import java.lang.reflect.Array;
 
 public class SquareMatrix {
 
-	//Member variables 
+	//Member variables: 
 	double[][] matrixElements; 
 
 	//Constructor - throws exception if argument passed isn't in square Matrix form. 
 	public SquareMatrix(double[][] elements) throws Exception {
 		for(int i = 0; i < elements.length; i++){ 
-			if ((elements[i].length == elements.length) == false){//Tests that a square matrix has been entered
+			if ((elements[i].length == elements.length) == false){
 				throw new Exception("Error in SquareMatrix object: Must enter a valid square Matrix");
 			}
 		}
@@ -42,20 +42,25 @@ public class SquareMatrix {
 		return matstring;
 	}
 
-	//Creates a unit vector of dimensions given in the argument.
+	//Creates a unit Matrix of dimensions passed in the argument.
 	public static SquareMatrix unitMatrix(int n) throws Exception{
-		double[][] unitmat = new double[n][n];
+		double[][] unitmat = new double[n][n];//Create a 2D array of n*n dimensions. 
 		for(int i = 0; i < n ; i++){
 			for(int j = 0; j < n; j++){
-				if(i == j){
-					unitmat[i][j] = 1.0;
+				if(i == j){					//For elements across the diagonal,
+					unitmat[i][j] = 1.0;	//set these to 1.
 				}
-				else{
-					unitmat[i][j] = 0.0;
+				else{						//For elements not on the diagonal,
+					unitmat[i][j] = 0.0;	//set these to 0
 				}
 			}
 		}
 		return new SquareMatrix(unitmat);
 	}
 
+	//Checks whether tow matrices have the same elements. 
+	public boolean equals(Object obj){
+		
+	}
+	
 }

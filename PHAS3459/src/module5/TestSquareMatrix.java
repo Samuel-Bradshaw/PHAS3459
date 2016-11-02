@@ -16,9 +16,9 @@ public class TestSquareMatrix {
 
 		
 		try{
-			SquareMatrix u3 = SquareMatrix.unitMatrix(3);
-			System.out.println(u3);
-		}
+			SquareMatrix u5 = SquareMatrix.unitMatrix(2);
+			System.out.println(u5);
+			}
 		catch(Exception e){
 			System.out.println(e);
 		}

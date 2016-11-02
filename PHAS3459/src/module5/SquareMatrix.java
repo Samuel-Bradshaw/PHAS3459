@@ -9,7 +9,7 @@ import java.lang.reflect.Array;
 public class SquareMatrix {
 
 	//Member variables 
-	private double[][] matrixElements; 
+	double[][] matrixElements; 
 
 	//Constructor - throws exception if argument passed isn't in square Matrix form. 
 	public SquareMatrix(double[][] elements) throws Exception {
@@ -37,9 +37,25 @@ public class SquareMatrix {
 				matstring +=  "\n ";			   // write next row of matrix on  a new line,
 			}                                      // unless it is the final row.
 			else{ // Close off matrix with ")"
-				matstring += ")";}
+				matstring += ")\n";}
 		}
 		return matstring;
+	}
+
+	//Creates a unit vector of dimensions given in the argument.
+	public static SquareMatrix unitMatrix(int n) throws Exception{
+		double[][] unitmat = new double[n][n];
+		for(int i = 0; i < n ; i++){
+			for(int j = 0; j < n; j++){
+				if(i == j){
+					unitmat[i][j] = 1.0;
+				}
+				else{
+					unitmat[i][j] = 0.0;
+				}
+			}
+		}
+		return new SquareMatrix(unitmat);
 	}
 
 }

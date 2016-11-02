@@ -1,7 +1,9 @@
 package module5;
 
 /** 
- * Square Matrix 
+ * Defining Square Matrix objects from arrays 
+ * and some matrix manipulation methods such as
+ * adding, subtracting, and multiplying matrices.
  * **/
 
 import java.lang.reflect.Array;
@@ -15,15 +17,11 @@ public class SquareMatrix {
 	//Constructor - throws exception if argument passed isn't in square Matrix form. 
 	public SquareMatrix(double[][] elements) throws Exception {
 		for(int i = 0; i < elements.length; i++){ 
-			if ((elements[i].length == elements.length) == false){
+			if (elements[i].length != elements.length){
 				throw new Exception("Error in SquareMatrix object: Must enter a valid square Matrix");
 			}
 		}
 		matrixElements = elements;
-	}
-
-	int length(){
-		return this.matrixElements.length;
 	}
 
 	//Presents SquareMatrix objects in a readable form
@@ -47,7 +45,7 @@ public class SquareMatrix {
 		return matstring;
 	}
 
-	//Creates a unit Matrix of dimensions passed in the argument.
+	//Creates an Identity Matrix of dimensions passed in the argument.
 	public static SquareMatrix unitMatrix(int n) throws Exception{
 		double[][] unitmat = new double[n][n];//Create a 2D array of n*n dimensions. 
 		for(int i = 0; i < n ; i++){
@@ -62,7 +60,8 @@ public class SquareMatrix {
 		}
 		return new SquareMatrix(unitmat);
 	}
-//Generated from Source -> Generate hasCode() and equals()...
+
+	//Generated from Source -> Generate hasCode() and equals()...
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -113,20 +112,20 @@ public class SquareMatrix {
 		return new SquareMatrix(sm3);
 	}
 
-	//Multiplies two square matrices together.
+	//Multiplies two square matrices together:
 	public static SquareMatrix multiply(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
 		if(sm1.matrixElements.length != sm2.matrixElements.length){
 			throw new Exception("SquareMatrix.multiply() failure: Cannot multiply square matrices of different dimensions.");
 		} 
-		//Initialising the product of the two matrices as sm3
 		int n = sm1.matrixElements.length;
+		//Initialising the product of the two matrices as sm3:
 		double[][] sm3 = new double[n][n]; 
-		for(int i = 0; i < n; i++){			//Initialising all the values as zero
-			for(int j = 0; j < n; j++){
-				sm3[i][j] = 0;
+		for(int i = 0; i < n; i++){			
+			for(int j = 0; j < n; j++){		// Initialising all the values
+				sm3[i][j] = 0;				// of sm3 as 0.
 			}
 		}
-		//Product of matrices given by sm3[i][j] = sm1[i][k]*sm2[k][j] where we sum over all k indices. 
+		//The product of matrices sm1 and sm2 is given by sm3[i][j] = sm1[i][k]*sm2[k][j] where we sum over all k indices. 
 		for(int i = 0; i < n ; i++){
 			for(int j = 0; j < n; j++){
 				for(int k = 0; k < n; k++){ //Summing over k indices
@@ -136,4 +135,19 @@ public class SquareMatrix {
 		}
 		return new SquareMatrix(sm3);
 	}
+	
+	/** Non-Static methods:*/
+	
+	SquareMatrix add(SquareMatrix sm1) throws Exception{
+		return add(this, sm1);
+	}
+	
+	SquareMatrix subtract(SquareMatrix sm1) throws Exception{
+		return subtract(this, sm1);
+	}
+	
+	SquareMatrix multiply(SquareMatrix sm1) throws Exception{
+		return multiply(this, sm1);
+	}
+	
 }

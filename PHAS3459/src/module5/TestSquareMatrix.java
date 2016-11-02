@@ -2,10 +2,19 @@ package module5;
 
 public class TestSquareMatrix {
 
-	static double[][] aArray = {{2,0,-1},{0,2,0},{3,0,1}};
-	static double[][] bArray = {{-1,0,1},{0,1,0},{-3,0,1}};
-	static double[][] cArray = {{2,3},{3,4}}; 
-	static double[][] dArray = {{-4,3},{3,-2}}; 
+	static double[][] aArray = {{2, 0,-1},
+								{0, 2, 0},
+								{3, 0, 1}};
+	
+	static double[][] bArray = {{-1, 0, 1},
+							   	{ 0, 1, 0},
+								{-3, 0, 1}};
+	
+	static double[][] cArray = {{2, 3},
+								{3, 4}}; 
+	
+	static double[][] dArray = {{-4, 3},
+								{ 3,-2}}; 
 
 	public static void main(String[] args) {
 

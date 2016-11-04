@@ -17,7 +17,7 @@ import java.util.*;
 public class DataAnalysis {
 
 	//Takes data points from an online document and creates an ArrayList out of them.
-	static ArrayList dataFromURL(String url)throws IOException{ 
+	static ArrayList dataFromURL(String url) throws IOException{ 
 		URL url1 = new URL(url); 
 		InputStream istream = url1.openStream(); 
 		InputStreamReader isr = new InputStreamReader(istream); 
@@ -27,10 +27,10 @@ public class DataAnalysis {
 
 		try(Scanner scanner1 = new Scanner(buffr);
 				){ 
-			while (scanner1.hasNextDouble()){  			 //Create a DataPoint object from each line
-				double x = scanner1.nextDouble();		 //in the online document, where the first double 
-				double y = scanner1.nextDouble();		 //in each line is x, the second double is y, 
-				double ey = scanner1.nextDouble();		 //and the third is ey.
+			while (scanner1.hasNextDouble()){  		  //Create a DataPoint object from each line
+				double x = scanner1.nextDouble();	  //in the online document, where the first double 
+				double y = scanner1.nextDouble();	  //in each line is x, the second double is y, 
+				double ey = scanner1.nextDouble();	  //and the third is ey.
 				DataPoint datapoint = new DataPoint(x,y,ey); 
 				list.add(datapoint);
 			}
@@ -38,8 +38,8 @@ public class DataAnalysis {
 		return list; 
 	}
 
-	//Returns the X^2 (chi squared) statistic, where X^2 is the sum 
-	// over all data points of the quantity (ymeasured - ytheory)^2/ey^2
+	// Returns the X^2 (chi squared) statistic, where X^2 is 
+	// the sum over all data points of the quantity (ymeasured - ytheory)^2/ey^2
 	static double goodnessOfFit(Theory theory, ArrayList<DataPoint> data){
 		//Initialise chiSquared:
 		double XSquared = 0.0;

@@ -1,5 +1,10 @@
 package module5;
-
+ 
+/** Takes data from 2 online .txt documents: One containing a list of mineral samples and their masses
+ *  and another containing the location of the mineral samples. 
+ *  This class uses HashMaps to find the samples with the maximum and minimum masses and 
+ *  prints them to the screen along with the location that they were found.   
+ */
 
 import java.io.*;
 import java.net.URL;
@@ -8,6 +13,7 @@ import java.util.Map.Entry;
 
 public class Minerals {
 
+	//Enter URL of online data documents as Strings:
 	private static String mineralMassURL = "http://www.hep.ucl.ac.uk/undergrad/3459/data/module5/module5-samples.txt"; 
 	private static String mineralLocationURL = "http://www.hep.ucl.ac.uk/undergrad/3459/data/module5/module5-locations.txt";
 
@@ -53,7 +59,7 @@ public class Minerals {
 		return minerallocation;
 	}
 
-	//getsKeysByValue finds the corresponding Key Code for a given Value.
+	//getsKeysByValue finds the corresponding Key Code for a given Value. Method taken from stackexchange. 
 	//- As we later use this to find the Key of the Max and Min values in the data, we assume that there
 	//is only one key code for the given values (i.e. that for the given values, it is a one-to-one map.)
 	public static <K, V> K getKeysByValue(Map<K, V> map, V value) {
@@ -61,8 +67,8 @@ public class Minerals {
 		for (Entry<K, V> entry : map.entrySet()) {				//(If we want to alter this method for
 			if (Objects.equals(value, entry.getValue())) {		//a many-to-one mapping, returning a set of keys
 				return entry.getKey();// 						//instead of a single key, change return type from K to Set<K>,
-				//keys.add(entry.getKey());						//"uncomment" //-lines  and remove lines ending with -//.)
-			}
+				//keys.add(entry.getKey());						//"uncomment" lines starting with //-,  
+			}													// and remove lines followed by -//.)
 		}
 		return null;//
 		//return keys;

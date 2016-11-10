@@ -45,9 +45,9 @@ public class DataAnalysis {
 		double XSquared = 0.0;
 		//Summing over all data points:
 		for(int i = 0; i < data.size(); i++){
-			double ymeasuredi = data.get(i).y;
-			double ytheoryi = theory.y(data.get(i).x);
-			double eyi = data.get(i).ey;
+			double ymeasuredi = data.get(i).gety();
+			double ytheoryi = theory.y(data.get(i).getx());
+			double eyi = data.get(i).getey();
 			double XSquaredi = Math.pow(((ymeasuredi - ytheoryi)/eyi), 2);
 			XSquared = XSquared + XSquaredi;
 		}

@@ -171,47 +171,27 @@ public class exam2014 {
 		}
 		return planetDistance;
 	}
-
-
-
+/**/
 	public static void main(String[] args){
 		try{
-			HashMap<String, Integer> planetDiscoveryYear = PlanetYear(exoplanetURL); 
+			HashMap<String, Integer> planetYear = PlanetYear(exoplanetURL); 
 			HashMap<String, String> planetDiscoveryMethod = PlanetMethod(exoplanetURL);  
 			HashMap<String, Double> planetMass = PlanetMass(exoplanetURL);
 			HashMap<String, Double> planetSeparation = PlanetSeparation(exoplanetURL);
 
-			System.out.println("Year discovered: "+planetDiscoveryYear.entrySet());
+			System.out.println("Year discovered: "+planetYear.entrySet());
 			System.out.println("method disocvered: "+planetDiscoveryMethod.entrySet());
 			System.out.println("masses: "+planetMass.entrySet());
 			System.out.println("exoplanet separation from star: "+planetSeparation.entrySet());
 
-		  //HashMap<String, Double> planetDistance = PlanetDistance(exoplanetURL);
+		  HashMap<String, Double> planetDistance = PlanetDistance(exoplanetURL);
 
-			//System.out.println(planetDistance.entrySet());
+			System.out.println(planetDistance.entrySet());
 
 			
 			
-			Scanner scanner1 = new Scanner("Kepler-107 d,2014,Transit,0.00371234,0.0780099,WASP-14 b,2009,Transit,7.69234,0.0367693,160");
-					scanner1.useDelimiter(",");
 
-			while(scanner1.hasNext()){
-				String planetname = scanner1.next();//Adding each entrySet to the HashMap
-				scanner1.next();//skip year
-				scanner1.next();//skip method
-				scanner1.next();//skip mass
-				scanner1.next();//skip separation
-				if (scanner1.hasNextDouble()){
-					double distance = scanner1.nextDouble();
-					System.out.println(planetname +": "+distance);
-					//planetDistance.put(planetname, distance);
-					}
-				else{
-					System.out.println(planetname +": "+null);
-					//planetDistance.put(planetname, null);
-				}
-
-			}
+			
 		}
 
 		catch (IOException e) {

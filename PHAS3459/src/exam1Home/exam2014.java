@@ -148,24 +148,26 @@ public class exam2014 {
 				n = n + 1;
 				scanner1.nextLine();
 			}
-
+			
 			scanner1.useDelimiter(",");
-			while (scanner1.hasNext()){  	
-				String planetname = scanner1.next();	//Adding each entrySet to the HashMap
+			while(scanner1.hasNext()){
+				String planetname = scanner1.next();//Adding each entrySet to the HashMap
 				scanner1.next();//skip year
 				scanner1.next();//skip method
 				scanner1.next();//skip mass
 				scanner1.next();//skip separation
 				if (scanner1.hasNextDouble()){
 					double distance = scanner1.nextDouble();
+					System.out.println(planetname +": "+distance);
 					planetDistance.put(planetname, distance);
-					System.out.println(planetname +", "+distance);
-				}
-				else {
+					}
+				else{
+					System.out.println(planetname +": "+null);
 					planetDistance.put(planetname, null);
-					System.out.println(planetname +", null");
 				}
+
 			}
+
 		}
 		return planetDistance;
 	}
@@ -179,32 +181,37 @@ public class exam2014 {
 			HashMap<String, Double> planetMass = PlanetMass(exoplanetURL);
 			HashMap<String, Double> planetSeparation = PlanetSeparation(exoplanetURL);
 
-			//System.out.println("planet separation from star"+planetSeparation.entrySet());
+			System.out.println("Year discovered: "+planetDiscoveryYear.entrySet());
+			System.out.println("method disocvered: "+planetDiscoveryMethod.entrySet());
+			System.out.println("masses: "+planetMass.entrySet());
+			System.out.println("exoplanet separation from star: "+planetSeparation.entrySet());
 
-			HashMap<String, Double> planetDistance = PlanetDistance(exoplanetURL);
+		  //HashMap<String, Double> planetDistance = PlanetDistance(exoplanetURL);
 
 			//System.out.println(planetDistance.entrySet());
 
-			Scanner scanner1 = new Scanner("Kepler-107 d,2014,Transit,0.00371234,0.0780099,"
-					+"WASP-14 b,2009,Transit,7.69234,0.0367693,160");
-					scanner1.useDelimiter(",|\n");
+			
+			
+			Scanner scanner1 = new Scanner("Kepler-107 d,2014,Transit,0.00371234,0.0780099,WASP-14 b,2009,Transit,7.69234,0.0367693,160");
+					scanner1.useDelimiter(",");
 
 			while(scanner1.hasNext()){
 				String planetname = scanner1.next();//Adding each entrySet to the HashMap
-				System.out.println(planetname);
 				scanner1.next();//skip year
 				scanner1.next();//skip method
 				scanner1.next();//skip mass
 				scanner1.next();//skip separation
-				if (scanner1.hasNextDouble())
-					System.out.println(scanner1.next());
+				if (scanner1.hasNextDouble()){
+					double distance = scanner1.nextDouble();
+					System.out.println(planetname +": "+distance);
+					//planetDistance.put(planetname, distance);
+					}
 				else{
-				
+					System.out.println(planetname +": "+null);
+					//planetDistance.put(planetname, null);
 				}
 
 			}
-
-
 		}
 
 		catch (IOException e) {

@@ -13,7 +13,7 @@ public class DataPoint {
 	double ey;
 	
 	//Constructor:
-	DataPoint(double x1, double y1, double errory){
+	public DataPoint(double x1, double y1, double errory){
 		x = x1;
 		y = y1;
 		ey = errory;

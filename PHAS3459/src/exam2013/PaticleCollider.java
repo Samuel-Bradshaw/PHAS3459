@@ -24,10 +24,11 @@ public class PaticleCollider {
 			while(scanner1.hasNext()){
 
 				String token1 = scanner1.next();
+				String eventcode = "";
 
 				if(Character.isLetter(token1.charAt(0))){ //If first letter of line is a character,
 					int ntracks = scanner1.nextInt();		// this indicates a new event
-					String eventcode = scanner1.next();
+					eventcode = scanner1.next();
 					//Initialise the ArrayList of particles for each new event:
 					ArrayList<Particle> eventParticlei = new ArrayList<Particle>();
 

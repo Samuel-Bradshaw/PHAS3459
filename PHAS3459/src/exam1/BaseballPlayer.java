@@ -54,5 +54,15 @@ public class BaseballPlayer {
 			return atBats;
 		}
 	
+		public int getHits(){
+			return hits;
+		}
+		public int getDoubles(){
+			return doubles;
+		}
+		public int getTriples(){
+			return triples;
+		}
+		
 
 }

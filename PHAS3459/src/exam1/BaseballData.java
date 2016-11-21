@@ -164,26 +164,42 @@ public class BaseballData {
 			HashMap<String, Team> teamData = teams(dataURL);
 			//For each team print:
 			//	- the number of players with at least 10 At-bats
+			//	- the plyer with =>10 at bats with highest slg value
 
-			System.out.println("\nPlayer with 10 or more At-Bats for each team: \n[Team, Number of players with >= At-Bats:");
+
+			System.out.println("\nPlayer with 10 or more At-Bats for each team: \n");
 
 			Iterator<Team> it2 = teamData.values().iterator();
 			while(it2.hasNext()){
 				Team teami = it2.next();
 				String tname = teami.getName();
+
+				double slgMax = 0;
+				BaseballPlayer slgMaxPlayer = (null);
+				
 				Iterator<BaseballPlayer> it3 = teami.getPlayers().iterator();
 				int TeamAtBatsCount = 0;
+
+
 				while(it3.hasNext()){
-					int atbats = it3.next().getAtBats();
+					BaseballPlayer bbp = it3.next();
+					int atbats = bbp.getAtBats();
 					if(atbats >= 10){
 						TeamAtBatsCount = TeamAtBatsCount + 1;
+
+						//Update slg values
+						double slg = (bbp.getHits() + 2*bbp.getDoubles() + 3*bbp.getTriples() + 4*bbp.getHomeruns())/atbats;
+
+						if(slg >= slgMax){
+							slgMax = slg;
+							slgMaxPlayer = bbp;
+						}
 					}
 
 				}
-				System.out.println(tname+":"+TeamAtBatsCount);
+				System.out.println(tname+" has "+TeamAtBatsCount+" players with 10 or more at bats");
+				System.out.println("Player with highest slg for on team "+tname+": "+slgMaxPlayer+"\n");
 			}
-
-
 
 		} 
 		catch (IOException e) {

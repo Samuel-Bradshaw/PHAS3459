@@ -17,7 +17,7 @@ import java.util.*;
 public class DataAnalysis {
 
 	//Takes data points from an online document and creates an ArrayList out of them.
-	static ArrayList dataFromURL(String url) throws IOException{ 
+	static ArrayList<DataPoint> dataFromURL(String url) throws IOException{ 
 		URL url1 = new URL(url); 
 		InputStream istream = url1.openStream(); 
 		InputStreamReader isr = new InputStreamReader(istream); 

@@ -11,7 +11,7 @@ import java.lang.Math;
 public class Theory {
 
 	//Member variables
-	double n;
+	private double n;
 
 	//Constructor
 	Theory(double n1){

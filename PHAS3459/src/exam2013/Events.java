@@ -5,7 +5,7 @@ import java.util.*;
 public class Events {
 
 	ArrayList<Particle> particleData = new ArrayList<Particle>();
-	public static String triggerCode;
+	public String triggerCode;
 	
 	Events(String code, ArrayList<Particle> particles){
 		triggerCode = code;

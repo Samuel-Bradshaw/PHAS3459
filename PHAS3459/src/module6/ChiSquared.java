@@ -1,6 +1,5 @@
 package module6;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 public class ChiSquared implements GoodnessOfFitCalculator{

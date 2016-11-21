@@ -29,13 +29,13 @@ public class TestDataPoints {
 			while (scanner1.hasNextDouble()){  		  //Create a DataPoint object from each line
 				double x = scanner1.nextDouble();	  //in the online document, where the first double 
 				double y = scanner1.nextDouble();	  //in each line is x, the second double is y, 
-				double ey = scanner1.nextDouble();	  //and the third is ey.
+				double ey = scanner1.nextDouble();	  //and the third is ey. 
 				if(scanner1.hasNextDouble()){
 					DataPoint point = new DataPoint(x,y,ey); 
 					list.add(point);
 				}
-				else{
-					String label = scanner1.next();
+				else if(scanner1.hasNext()){ 			//If the line has a 'label' in the form of a String
+					String label = scanner1.next();		// Create a LabelledDataPoint and add it to ArrayList.
 					LabelledDataPoint point2 = new LabelledDataPoint(x, y, ey, label);
 					list.add(point2);
 				}
@@ -46,6 +46,16 @@ public class TestDataPoints {
 
 	public static void main(String[] args) {
 
+		try {
+			ArrayList<DataPoint> datapoints = dataFromURL(dataURL);
+			//Loop over ArrayList and print each DataPoint:
+			for(DataPoint p : datapoints){
+				System.out.println(p);
+			}
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		}
 
 	}
 

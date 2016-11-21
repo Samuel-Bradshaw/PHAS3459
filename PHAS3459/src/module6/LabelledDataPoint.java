@@ -13,7 +13,7 @@ public class LabelledDataPoint extends DataPoint {
 	
 	//returns string in the form: "data_point_label: x = ..., y = ...+-ey..."
 	public String toString(){ 
-		return label+": x = "+x+", y = "+y+"+-"+ey;
+		return label+": x = "+x+", y = "+y+" +- "+ey;
 	}
 
 	

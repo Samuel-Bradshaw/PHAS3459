@@ -2,7 +2,7 @@ package module6;
 
 /**
  * A class of dataPoint objects containing three pieces of information:
- * x measurement, y measurement and y error (ey). Used in Chi Squared data analysis
+ * x measurement, y measurement and y error (ey). 
  */
 
 public class DataPoint {
@@ -26,15 +26,15 @@ public class DataPoint {
 	
 	//Methods returning x, y and ey:
 	
-	double getx(){
+	public double getx(){
 		return x;
 	}
 	
-	double gety(){
+	public double gety(){
 		return y;
 	}
 	
-	double getey(){
+	public double getey(){
 		return ey;
 	}
 	

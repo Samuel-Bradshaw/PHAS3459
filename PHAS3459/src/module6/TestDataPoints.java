@@ -8,6 +8,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/** Tests the subclass extension of the DataPoint class by reading in data from a URL 
+ *  and creates either a DataPoint or - if the data also has a label - a
+ *  LabelledDataPoint object (an extension of the DataPoint class) and forms an ArrayList.
+ **/
 
 public class TestDataPoints {
 
@@ -16,13 +20,14 @@ public class TestDataPoints {
 	//Takes data points from an online document and creates an ArrayList out of them.
 	static ArrayList<DataPoint> dataFromURL(String url) throws IOException{ 
 		//Initialise ArrayList of DataPoints:
-		ArrayList<DataPoint> list = new ArrayList<DataPoint>(); //Initialising ArrayList
+		ArrayList<DataPoint> list = new ArrayList<DataPoint>(); 
 
 		//Reading data from URL:
-		URL url1 = new URL(url); 
-		InputStream istream = url1.openStream();
+				URL url1 = new URL(url); 
+				InputStream istream = url1.openStream();
 		try(	InputStreamReader isr = new InputStreamReader(istream); 
 				BufferedReader buffr = new BufferedReader(isr); 
+				
 				Scanner scanner1 = new Scanner(buffr);
 				){ 
 
@@ -44,15 +49,20 @@ public class TestDataPoints {
 		return list; 
 	}
 
+
 	public static void main(String[] args) {
 
 		try {
+
 			ArrayList<DataPoint> datapoints = dataFromURL(dataURL);
+
 			//Loop over ArrayList and print each DataPoint:
 			for(DataPoint p : datapoints){
 				System.out.println(p);
 			}
+
 		} 
+
 		catch (IOException e) {
 			e.printStackTrace();
 		}

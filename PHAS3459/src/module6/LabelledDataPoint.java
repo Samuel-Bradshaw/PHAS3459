@@ -1,5 +1,11 @@
 package module6;
 
+
+/**
+ * An extension of the DataPoint class with an added member variable (i.e. its label)
+ * and an altered toString() method
+ */
+
 public class LabelledDataPoint extends DataPoint {
 	
 	//This class has an added member variable representing a label

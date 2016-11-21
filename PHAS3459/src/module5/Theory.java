@@ -23,5 +23,9 @@ public class Theory {
 		double y = Math.pow(x, n);
 		return y;
 	}
+	
+	public String toString(){
+		return "x^"+n;
+	}
 
 }

@@ -1,5 +1,7 @@
 package module6;
 
+/**Implements the function y = x^n **/
+
 public class PowerLawTheory implements Theory{
 
 	//Member variables
@@ -14,5 +16,8 @@ public class PowerLawTheory implements Theory{
 		return Math.pow(x, n);
 	}
 	
+	public String toString(){
+		return "y = x^"+n;
+	}
 
 }

@@ -1,5 +1,7 @@
 package module6;
 
+/**Implements the function y =  y = a x^2 + b x + c **/
+
 public class QuadraticTheory implements Theory{
 
 	//Member variables
@@ -20,7 +22,7 @@ public class QuadraticTheory implements Theory{
 	}
 
 	public String toString(){
-		return a+"x^2 +"+b+"x +"+c;
+		return "y = "+a+"x^2 + "+b+"x + "+c;
 		
 	}
 }

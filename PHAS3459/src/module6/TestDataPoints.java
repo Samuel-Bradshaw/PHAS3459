@@ -53,10 +53,11 @@ public class TestDataPoints {
 	public static void main(String[] args) {
 
 		try {
-
+			
 			ArrayList<DataPoint> datapoints = dataFromURL(dataURL);
-
+			
 			//Loop over ArrayList and print each DataPoint:
+			
 			for(DataPoint p : datapoints){
 				System.out.println(p);
 			}

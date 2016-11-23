@@ -4,7 +4,6 @@ import java.util.Collection;
 
 public class ChiSquared implements GoodnessOfFitCalculator{
 
-
 	// Returns the X^2 (chi squared) statistic, where X^2 is 
 	// the sum over all data points of the quantity (ymeasured - ytheory)^2/ey^2
 	public double goodnessOfFit(Collection<DataPoint> data, Theory theory) {

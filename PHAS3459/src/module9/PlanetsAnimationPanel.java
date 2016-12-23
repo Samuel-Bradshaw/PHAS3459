@@ -10,37 +10,64 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class PlanetsAnimationPanel extends JPanel implements ActionListener {
-	
-	int orbitalRadius;
+
+	int OrbitalRadius;
 	int Period;
 	Color colour;
+	double angularVelocity;
+	double angle = 0.0;
 	
-	private final int delay = 50; // delay in ms between steps    
-	private Timer animationTimer; // timer controlling frame rate 
+	private static int delta = 1; // delay in ms between steps    
+	private static Timer animationTimer; // timer controlling frame rate 
 
-	PlanetsAnimationPanel(int orbitalRadius, int Period) {   
-		//setPreferredSize(new Dimension(width,height));
-		//int size = Math.min(width, height) / 4;  
-		animationTimer = new Timer(delay, this); 
-		animationTimer.start(); 
+
+	PlanetsAnimationPanel(int orbitalRadius, int period, Color col) {   
+		OrbitalRadius = orbitalRadius;
+		Period = period; 
+		colour = col;
+		angularVelocity = 2*Math.PI/Period;
+		
+		animationTimer = new Timer(delta, this); 
+	     
 	}
 
 	protected void paintComponent(Graphics g){
 		super.paintComponent(g);
+
+		//origin coords
+		int x0 = getWidth()/2;
+		int y0 = getHeight()/2;
+
+		int r = OrbitalRadius;
+
+		int x = (int) Math.round(x0 + r*Math.cos(angle));
+		int y = (int) Math.round(y0 + r*Math.sin(angle));
+
 		
-	    int width = getWidth();
-	    int height = getHeight();
-	    g.setColor(colour);
-		g.fillOval(width/2,orbitalRadius,10,10);
-		
+		g.setColor(colour);
+		g.fillOval(x, y, 10, 10);
+
 	}
-		
+
 	public void actionPerformed(ActionEvent e) {
-		
+
+	//	double angularVelocity = 2*Math.PI/Period;
+		angle = angularVelocity*delta; 
+		delta = delta+1;
+
 		repaint();
-		
+
 	}
-	
-	
+
+	/** Start the animation */
+	public static void start() {
+		
+		animationTimer.start();
+	}
+
+	/** Stop the animation */
+	public static void stop() {
+		animationTimer.stop();
+	}
 
 }

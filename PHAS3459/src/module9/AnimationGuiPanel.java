@@ -16,7 +16,11 @@ public class AnimationGuiPanel extends JPanel implements ActionListener {
 		setPreferredSize(new Dimension(600,600));
 		setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
 
-		animPanel = new AnimationPanel(200,200);
+		animPanel = new AnimationPanel(400,400);
+		
+		PlanetsAnimationPanel Mars = new PlanetsAnimationPanel(50,2000, Color.RED);
+		PlanetsAnimationPanel Earth = new PlanetsAnimationPanel(100,4000, Color.GREEN);
+		
 		startButton = new JButton("Start");
 		stopButton  = new JButton("Stop");
 		exitButton = new JButton("Exit");

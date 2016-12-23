@@ -2,10 +2,13 @@ package module9;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+
 import javax.swing.*;
 
 public class AnimationGuiPanel extends JPanel implements ActionListener {
-	private AnimationPanel animPanel; // panel containing animation
+	
+	private PlanetsAnimationPanel animPanel; // panel containing animation
 	private JButton startButton;
 	private JButton stopButton;
 	private JButton exitButton;
@@ -15,11 +18,21 @@ public class AnimationGuiPanel extends JPanel implements ActionListener {
 		super();
 		setPreferredSize(new Dimension(600,600));
 		setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
-
-		animPanel = new AnimationPanel(400,400);
 		
-		PlanetsAnimationPanel Mars = new PlanetsAnimationPanel(50,2000, Color.RED);
-		PlanetsAnimationPanel Earth = new PlanetsAnimationPanel(100,4000, Color.GREEN);
+		ArrayList<Planet> planets = new ArrayList<Planet>();
+		Planet Mercury = new Planet(60, 1752, Color.GRAY, 8);
+		Planet Venus = new Planet(142, 4454, Color.WHITE, 19);
+		Planet Earth = new Planet(200, 7300, Color.GREEN, 20);
+		Planet Mars = new Planet(276, 13724, Color.RED, 11);
+		Planet Sun = new Planet(0, 1, Color.YELLOW, 30);
+		planets.add(Mars);
+		planets.add(Earth);
+		planets.add(Mercury);
+		planets.add(Venus);
+		planets.add(Sun);
+		
+		animPanel = new PlanetsAnimationPanel(planets, 600, 600);
+		
 		
 		startButton = new JButton("Start");
 		stopButton  = new JButton("Stop");
@@ -48,8 +61,12 @@ public class AnimationGuiPanel extends JPanel implements ActionListener {
 	}
 
 	/** Start animation when applet is started */
-	public void start() {animPanel.start();}
+	public void start() {
+		animPanel.start();
+		}
 
 	/** Stop animation when applet is stopped */
-	public void stop() {animPanel.stop();}
+	public void stop() {
+		animPanel.stop();
+		}
 }

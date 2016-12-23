@@ -2,20 +2,29 @@ package module9;
 
 import java.awt.Color;
 
+/**
+ * Class defining Planet objects to be graphically displayed in a
+ * simplified representation of the solar system. 
+ * @author Samuel Bradshaw
+ */
+
 public class Planet {
+
+	//Polar coords
+	int OrbitalRadius; 
+	double angle;
 	
-	int OrbitalRadius;
 	int Period;
 	Color colour;
+	int PlanetRadius;
 	double angularVelocity;
-	double angle;
-	int PlanetSize;
-	
-	Planet(int orbitalRadius, int period, Color col, int planetSize){
+
+	//Constructor
+	Planet(int orbitalRadius, int period, Color col, int planetRadius){
 		OrbitalRadius = orbitalRadius;
 		Period = period; 
 		colour = col;
-		PlanetSize = planetSize;
+		PlanetRadius = planetRadius;
 		angularVelocity = 2*Math.PI/Period;
 	}
 
@@ -28,16 +37,16 @@ public class Planet {
 	int getPeriod(){
 		return Period;
 	}
-	
+
 	double getAngle(){
 		return angle;
+	}
+
+	int getPlanetSize(){
+		return PlanetRadius;
 	}
 	
 	void updateAngle(int timestep){
 		angle =  angularVelocity*timestep; 
-	}
-	
-	int getPlanetSize(){
-		return PlanetSize;
 	}
 }

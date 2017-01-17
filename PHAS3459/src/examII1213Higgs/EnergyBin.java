@@ -1,4 +1,4 @@
-package examII1213;
+package examII1213Higgs;
 
 public class EnergyBin {
 	

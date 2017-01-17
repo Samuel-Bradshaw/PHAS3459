@@ -1,4 +1,4 @@
-package examII1213;
+package examII1213Higgs;
 
 import java.io.*;
 import java.net.URL;

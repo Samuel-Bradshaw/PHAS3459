@@ -1,4 +1,4 @@
-package examII201415;
+package examII201415tides;
 
 /**
  * Class defining tides Objects used for storing data.

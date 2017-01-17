@@ -1,4 +1,4 @@
-package examII201415;
+package examII201415tides;
 
 /**
  * Class defining Site Objects used for storing data. 

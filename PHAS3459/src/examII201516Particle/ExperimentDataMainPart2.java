@@ -1,4 +1,4 @@
-package examII201516;
+package examII201516Particle;
 
 import java.io.*;
 import java.net.URL;

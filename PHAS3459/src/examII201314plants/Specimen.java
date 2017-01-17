@@ -1,4 +1,4 @@
-package examII201314;
+package examII201314plants;
 
 public class Specimen {
 
